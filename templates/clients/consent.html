@@ -1,0 +1,235 @@
+{% extends "clients/_base.html" %}
+{% load static %}
+{% load materializecss %}
+{% block title %}Consentimiento{% endblock %}
+
+{% block content %}
+    <nav class="navbar-fixed" aria-label="Lulu App">
+            <div class="nav-wrapper" style="background-color: #c47160">
+
+                <a href="{% url 'account_login' %}" class="brand-logo">Lulú | EYELASH STUDIO SPA</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="{% url 'clients:about' %}">Acerca de Lulú</a></li>
+                    <li><a href="{% url 'account_logout' %}">Salir</a></li>
+                </ul>
+            </div>
+        </nav>
+    <div class="container" style="padding-top: 3rem">
+
+        <div class="row">
+            <div class="col s12 m10 l8 offset-m1 offset-l2">
+                <div class="card">
+                    <div class="card-content">
+                        <section class="section">
+                            <div class="card-image" style="align-content: center">
+                                <img src="{% static 'img/LDT-01_small.png' %}" alt="">
+                            </div>
+                            <h4 class="center-align" style="padding-bottom: 2rem; color: #4a2c2a">
+                                CONSENTIMIENTO INFORMADO PARA LA APLICACIÓN DE ÁCIDO HIALURÓNICO
+                            </h4>
+                            <p>
+                                Yo,<input
+                                    type="text"
+                                    id="user_name"
+                                    value="{{ user.name }} {{ user.lastname }}"
+                                    class="validate"
+                                    placeholder="Nombre completo"
+                                    required
+                            >
+                            </p>
+                            <p>
+                                Autorizo para que se me realice el tratamiento que a continuación se detalla;
+                            </p>
+                            <div class="input-field col s12">
+                                <select multiple>
+                                    <option value="" disabled selected>Choose your option</option>
+                                    <option value="1">Option 1</option>
+                                    <option value="2">Option 2</option>
+                                    <option value="3">Option 3</option>
+                                </select>
+                                <label>Materialize Multiple Select</label>
+                            </div>
+                            <br><br><br>
+                            <p>
+                                por el aplicador <input
+                                    type="text"
+                                    id="beautician"
+                                    class="validate"
+                                    placeholder="Nombre de la aplicadora"
+                                    required
+                            > el cual se me ha explicado
+                                las dudas sobre el procedimiento.
+                            </p>
+
+                            <p style="text-align: justify; padding-bottom: 1rem">
+                                El tratamiento consta en inyectar en la piel ácido hialurónico, la duración del efecto
+                                es variable dependiendo de muchos factores como el tabaquismo, alcoholismo, algunos
+                                medicamentos, ejercicio excesivo, etcétera.
+                            </p>
+                            <p style="text-align: justify; padding-bottom: 1rem">
+                                Se puede repetir el tratamiento o repetir dosis mínimas, (retoque) siempre que sea
+                                necesario con intervalo a criterio del tratante. Puede ser necesaria la aplicación de
+                                anestesia local o tópica de cuyos riesgos pueden ser náuseas, vómito, dolor de cabeza,
+                                cambios en la presión, dolor, de los cuales se me han informado.
+                            </p>
+                            <p style="text-align: justify; padding-bottom: 1rem">
+                                Beneficios: conseguir un relleno dérmico en el tratamiento de aumento de labios,
+                                relleno de arrugas, deformidades de la nariz u otro objetivo valorado.
+                            </p>
+                            <p style="text-align: justify; padding-bottom: 1rem">
+                                <strong>Riesgos</strong>: se trata de una práctica en la que se puede producir
+                                heridas, y por lo tanto se corre el riesgo de sufrir hinchazón, enrojecimiento,
+                                inflamación, hematomas, dolor, granulomas, abscesos, necrosis, e infecciones,
+                                se me ha advertido que el tratamiento puede activarme herpes simple, recidivante
+                                labial, si ya lo he tenido anteriormente.
+                            </p>
+                            <p style="text-align: justify; padding-bottom: 1rem">
+                                Comprendo que a pesar de la adecuada elección de la técnica y de su correcta
+                                realización pueden presentarse efectos indeseables y se me ha advertido que no
+                                debo fumar, realizar actividad física, tomar alcohol, después del tratamiento y me
+                                han sido explicadas las recomendaciones y cuidados después del procedimiento,
+                                tomando responsabilidad en seguir las indicaciones como las indica la técnica.
+                            </p>
+                            <p style="text-align: justify; padding-bottom: 1rem">
+                                He sido informado de la posibilidad y naturaleza de las probables complicaciones que
+                                no pueden ser anticipadas y que por lo tanto no existe garantía de que no se presenten.
+                            </p>
+                            <p style="text-align: justify; padding-bottom: 1rem">
+                                <strong>Garantías</strong>: Así mismo se ha hecho de mi conocimiento que no se me
+                                hará reembolso, parcial y total Así como tampoco se podrá hacer cambios de servicio
+                                ya pagado. En caso de que el resultado no sea el deseado, se podrá retirar con
+                                hialuronidasa sin ningún costo.
+                            </p>
+                            <p style="text-align: justify; padding-bottom: 1rem">
+                                Informo que no presento ningún padecimiento que ponga en riesgo mi tratamiento, a
+                                mi persona o a mi tratante, he tenido la oportunidad de cuestionar todas mis dudas
+                                respecto al tratamiento y estas han sido contestadas a mi entera satisfacción, por
+                                lo que no me queda duda al respecto. He valorado el riesgo beneficio y deseo
+                                someterme de esta forma voluntaria a los procedimientos mencionados, deslindo
+                                totalmente al aplicador de cualquier responsabilidad presente o futura habiendo
+                                tomando la decisión de manera libre y voluntaria, por lo que manifiesto por este
+                                medio de forma libre, mi exclusión de responsabilidad legal presente o futura, así
+                                como mi renuncia expresa e irrevocable para iniciar cualquier procedimiento de
+                                índole penal o civil contra de LULU DE LA TORRE EYELASH STUDIO SPA, ni del personal
+                                que ahí labora, derivada o en torno a daños, descontentos, perjuicios o cualquier otro
+                                que pudiera experimentar ante el procedimiento que me estoy sometiendo.
+                            </p>
+                            <p style="text-align: justify; padding-bottom: 1rem">
+                                Liberando a LULU DE LA TORRE EYELASH STUDIO SPA, de cualquier responsabilidad
+                                prevista en el Código Civil para el estado de Jalisco.
+                            </p>
+                            <p style="text-align: justify">
+                                Autorizo a LULU DE LA TORRE EYELASH STUDIO SPA y o técnico que aquí labora, llevar
+                                a cabo el referido procedimiento y Acepto que suspenda el tratamiento si lo cree
+                                preciso.
+                            </p>
+                            <p style="text-align: justify; padding-bottom: 1rem">
+                                Por medio de la presente, concedo al técnico y a LULU DE LA TORRE EYELASH STUDIO SPA,
+                                el pleno derecho de publicar, tomar y reproducir fotografías y/o video de mí en sus
+                                redes sociales tanto antes, como después del procedimiento, para cualquier tipo de
+                                publicidad, educación, medio gráfico de diagnóstico u otros propósitos, incluyendo el
+                                derecho de autor a LULU DE LA TORRE EYELASH STUDIO SPA.
+                            </p>
+                            <p style="text-align: justify; padding-bottom: 1rem">
+                                Entiendo y soy consciente que me comprometo a abstenerme de difamar, criticar y
+                                expresar cualquier tipo de ideas o comentario que pueda dañar la reputación de LULU
+                                DE LA TORRE EYELASH STUDIO SPA, y su equipo de trabajo, ya sea de forma verbal o
+                                escrita, por cualquier medio de comunicación, como redes sociales o cualquier otra
+                                índole que pueda generar un daño y perjuicio de carácter patrimonial o moral.
+                            </p>
+                            <br><br>
+                            <p>
+                                <input
+                                        type="text"
+                                        id="signature"
+                                        class="validate"
+                                        placeholder="Nombre y firma del paciente."
+                                        required
+                                >
+                            </p>
+                            <p>
+                                <input
+                                        type="text"
+                                        id="date_signed"
+                                        class="validate"
+                                        placeholder="Fecha"
+                                        required
+                                >
+                                <input
+                                        type="text"
+                                        id="hour_signed"
+                                        class="validate"
+                                        placeholder="Hora"
+                                        required
+                                >
+                                <input
+                                        type="text"
+                                        id="place_signed"
+                                        class="validate"
+                                        placeholder="Lugar"
+                                        required
+                                >
+                            </p>
+                        </section>
+
+                        <!-- Consent Text Section -->
+                        <form action="{% url 'clients:questionnaire' %}" method="post">
+                            {% csrf_token %}
+                            <p>
+                                <div class="input-field">
+
+                        </div>
+                                <label for="id_accept_terms">
+                                    {{ form.accept_terms }}
+                                    <span>Estoy de acuerdo con los términos y condiciones</span>
+                                </label>
+                            </p>
+                            <div class="card-action right-align">
+                                <button
+                                        type="submit"
+                                        style="background-color: #4a2c2a; width: 100%"
+                                        class="btn waves-effect waves-light"
+                                        id="submit-btn"
+                                >
+                                    Aceptar
+                                </button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript to toggle button state -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const checkbox = document.getElementById("id_accept_terms");
+            const submitButton = document.getElementById("submit-btn");
+            const elems = document.querySelectorAll("select");
+            const instances = M.FormSelect.init(elems, options);
+
+            // Toggle button state based on checkbox
+            checkbox.addEventListener("change", function () {
+                submitButton.disabled = !checkbox.checked;
+            });
+            checkbox.addEventListener('invalid', function () {
+                // Set the custom validation message when invalid
+                this.setCustomValidity("Por favor, acepte los términos y condiciones.");
+            });
+
+            checkbox.addEventListener('input', function () {
+                // Clear the custom message if checkbox state changes
+                if (this.checked) {
+                    this.setCustomValidity("");
+                }
+            });
+            $(document).ready(function () {
+                $("select").formSelect();
+            });
+        });
+
+
+    </script>
+{% endblock %}

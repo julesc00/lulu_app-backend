@@ -1,0 +1,7 @@
+{% extends "clients/_base.html" %}
+
+{% if agreement.agreement_file %}
+    <embed src="{{ agreement.agreement_file.url }}" type="application/pdf" width="100%" height="600px">
+{% else %}
+    <p>El archivo del consentimiento no está disponible.</p>
+{% endif %}

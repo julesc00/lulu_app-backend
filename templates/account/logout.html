@@ -1,0 +1,29 @@
+{% extends "clients/_base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Log Out{% endblock %}
+
+{% block content %}
+    <div class="container" style="margin-top: 90px; display: flex; justify-content: center; align-items: center">
+        <div class="row">
+            <div class="col s12 m6 offset-m3">
+                <div class="row card-panel" style="min-width: 500px; max-width: 100%">
+                    <div class="center-align">
+                        <span class="card-title">
+                    Lulú | <span style="color: #da4f48">EYELASH STUDIO SPA</span>
+                </span>
+                    </div>
+                    <p>En verdad quieres salirte?</p>
+                    <form method="POST" action="{% url 'account_logout' %}">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <button style="width: 100%; background-color: #d8746e" class="btn btn-danger" type="submit">
+                            Salir
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
