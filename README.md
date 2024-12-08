@@ -36,7 +36,8 @@ Default user model
 3. Provision infrastructure: `terraform apply tfplan.plan` ***Note:*** Don't need to add the var file if added to the plan
 
 ## AWS EC2 Ubuntu Linux instance creation
-
+[Deploy a Django web app with Nginx to AWS EC2](https://www.youtube.com/watch?v=7O1H9kr1CsA)
+Note project/root dir `elevate`
 
 ## AWS EC2 Ubuntu Linux configuration
 1. Update OS `sudo apt udpate && sudo apt upgrade -y` 
@@ -49,6 +50,11 @@ Default user model
     - Remember to update codebase if outside changes are made to the repository.
 8. Install Nginx `sudo apt install nginx -y`
 9. Install gunicorn `pip install gunicorn`, it should have already been installed from the requirements.txt file.
+
+## Initial Django setup
+1. Migrate default Django model `./manage.py migrate`
+2. Make model migrations `./manage.py makemigrations clients` and then `./manage.py migrate clients`
+3. Create superusers `./manage.py createsuperuser`, ***Note:*** Create strong passwords for prod environment.
 
 ## Install and configure supervisor
 This app will make sure the Django server keeps running in the background
@@ -70,14 +76,17 @@ This app will make sure the Django server keeps running in the background
    # Edit file with sudo vim gunicorn.conf
    
    [program:gunicorn]
-    directory=/home/ubuntu/lulu_app-backend/backend
-    command=/home/ubuntu/env/bin/gunicorn --workers 3 --bind unix:/home/ubuntu/lulu_app-backend/backend/app.sock lulu_app-backend/backend.wsgi:application
-    autostart=true
-    stderr_logfile=/var/log/gunicorn/gunicorn.err.log
-    stdout_logfile=/var/log/gunicorn/gunicorn.out.log
+   directory=/home/ubuntu/lulu_app-backend
+   command=/home/ubuntu/lulu_app-backend/env/bin/gunicorn --workers 3 --bind unix:/home/ubuntu/lulu_app-backend/app.sock backend.wsgi.application
+   autostart=true
+   autorestart=true
+   stderr_logfile=/var/log/gunicorn/gunicorn.err.log
+   stdout_logfile=/var/log/gunicorn/gunicorn.out.log
+   user=ubuntu
 
-    [group:guni]
-    programs:gunicorn
+   
+   [group:guni]
+   programs:gunicorn
    ```
 3. Create dir `sudo mkdir /var/log/gunicorn`
 4. Tell supervisor to reread `sudo supervisorctl reread` and `sudo supervisorctl update`
