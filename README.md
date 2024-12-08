@@ -56,6 +56,9 @@ Note project/root dir `elevate`
 2. Make model migrations `./manage.py makemigrations clients` and then `./manage.py migrate clients`
 3. Create superusers `./manage.py createsuperuser`, ***Note:*** Create strong passwords for prod environment.
 
+## Whitenoise configuration
+
+
 ## Install and configure supervisor
 This app will make sure the Django server keeps running in the background
 1. Install supervisor `sudo apt install supervisor`
