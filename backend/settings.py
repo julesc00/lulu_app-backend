@@ -12,14 +12,16 @@ import os
 from datetime import timedelta
 from pathlib import Path
 
+from dotenv import load_dotenv
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-l!m6%gcg%3hfdsa71$lvdw@1g5o%xv7+793lhnao$c_=wf798&'
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.0", "127.0.0.1"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.0", "127.0.0.1", "*"]
 
 # app_name = "accounts"
 

@@ -24,4 +24,5 @@ gunicorn
 Pillow
 psycopg
 pytest
+python-dotenv
 whitenoise
