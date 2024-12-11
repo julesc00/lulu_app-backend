@@ -17,7 +17,7 @@ from dotenv import load_dotenv
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.getenv("SECRET_KEY")
+SECRET_KEY = "django-insecure-l!m6%gcg%3hfdsa71$lvdw@1g5o%xv7+793lhnao$c_=wf798&"  # os.getenv("SECRET_KEY")
 
 DEBUG = True
 

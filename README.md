@@ -100,5 +100,32 @@ This app will make sure the Django server keeps running in the background
    ```
 
 ## Nginx configuration
-1. Check nginx status `sudo systemctl restart nginx`
-2. Restart service `sudo systemctl restart nginx`
+
+
+Configuration file `sudo vim /etc/nginx/sites-available/lulu_app-backend`:  
+```aiignore
+server {
+   listen 80;
+   server_name 54.172.85.104;
+
+   access_log /var/log/nginx/luluapp.log;
+
+   location /static/ {
+       alias /opt/luluapp/lulu_app-backend/backend/staticfiles/;
+   }
+
+   location / {
+       proxy_pass http://127.0.0.1:8000;
+       proxy_set_header X-Forwarded-Host $server_name;
+       proxy_set_header X-Real-IP $remote_addr;
+       add_header P3P 'CP="ALLDSP COR PSAa PSDa OURNOR ONL UNI COM NAV"';
+   }
+}
+```
+
+1. `cd /etc/nginx/sites-enabled/`
+2. `sudo ln -s ../sites-available/lulu_app-backend`
+3. Go to `cd /etc/nginx/nginx.conf`, uncomment `server_names_has_bucket_size 64;`, restart nginx `sudo service nginx restart`
+4. Ufw (Uncomplicated Firewall) `sudo apt install ufw` and `sudo ufw allow 8000`
+5. Restart nginx service `sudo systemctl restart nginx` or `sudo service nginx restart`
+6. Restart service `sudo systemctl restart nginx`
